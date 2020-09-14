@@ -1,6 +1,11 @@
-h1{
-	font-family: monospace;
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
 }
+
 
 .particles {
 	position: fixed;
@@ -12,13 +17,22 @@ h1{
 }
 
 .dropzone {
-	display: block;
-	margin: 500px 0px 0px 500px;
-	height: 60%;
-	width: 45%;
+	height: 500px;
+	margin: auto;
+	display: flex;
+	padding: 150px;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
-	padding: 20px;
-	border: 5px dashed #eeeeee;
-	background-color: #fafafa;
-	color: #bdbdbd;
+	width: 35vw;
+	flex-direction: column;
+	border: 5px dashed #000000;
+	background-color: lightgray;
+	color: black;
+	box-sizing: border-box;
+}
+
+button {
+	display:flex;
+	align-content: center;
 }
