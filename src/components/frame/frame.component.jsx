@@ -1,20 +1,87 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner';
 
-import Box from '../box/box.component';
+import { setFaceBoundary, setApparelBoundary, numberOfFaces, setBoundingBox, setApparelsInfo, toggleBox, setWithSpinner } from '../../redux/box/box.actions';
+import { setFileProperties } from '../../redux/image/image.actions.js';
+
+import ModelsOptions from '../models-options/models-options.component.jsx';
+import ImageFrame from '../image-frame/image-frame.component';
 
 import './frame.styles.css';
 
-const Frame = ({ fileProperties, box, toggleBox, apparelsBox })=> (
-	<div className ='frame'>
-		<div className='image-frame'>
-			<Box apparelsBox={apparelsBox} box={box}fileProperties={fileProperties} toggleBox={toggleBox} />
-			<div className='info frame'>
-				
-			</div>
+
+const Frame = ({ faceCount, apparelsInfo, toggleBox, setFaceBoundary, setApparelBoundary, numberOfFaces, setFileProperties, setBoundingBox, setApparelsInfo, setWithSpinner, withSpinner })=> {
+	
+	const closeFrame = () => {
+		setFileProperties();
+		toggleBox();
+		setFaceBoundary({});
+		setApparelBoundary({});
+		numberOfFaces(0);
+		setBoundingBox({});
+		setApparelsInfo({});
+	}
+	return (
+		<div className ='frame'>
+				<div className ="close-frame">
+					<button onClick={closeFrame}>X</button>
+				</div>	
+				<div className ="image-frame">
+					<ImageFrame />
+				</div>	
+				<div className ="info-frame">
+						{!faceCount > 0 & !apparelsInfo.length > 0 ?
+							<h4>Select one of the models below to start.</h4>: null
+						}
+						{faceCount > 1 &&
+							<span>I have detected  {faceCount} faces</span>
+						}
+						{faceCount === 1  &&
+							<span>I have detected  {faceCount} face, try a group picture</span>
+						}						
+						{withSpinner === true ? (
+							<div
+							      style={{
+							        width: "100%",
+							        height: "100",
+							        display: "flex",
+							        justifyContent: "center",
+							        alignItems: "center"
+							      }}
+							    >
+							      <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
+							    </div>
+							    ) : (
+							    apparelsInfo.length > 0 &&
+									<div className = 'apparels-info'>
+										<h4>Name<span className = 'apparels-name'>{apparelsInfo.map((concepts) => <p key = {concepts[0].value}>{concepts[0].name}:</p>)}</span></h4>
+										<h4>Probabilty<span className = 'apparels-value'>{apparelsInfo.map((concepts) => <p key = {concepts[0].value}>{concepts[0].value * 100}%</p>)}</span></h4>
+									</div>
+							    
+							    )
+						}
+						<ModelsOptions />
+				</div>
 		</div>
-	</div>
-	);
+	);}
+const mapStateToProps = ({box:{faceCount, apparelsInfo, withSpinner} }) => ({
+	faceCount,
+	apparelsInfo,
+	withSpinner 
+})
 
-export default Frame;
+const mapDispatchToProps = dispatch => ({
+	toggleBox: () => dispatch(toggleBox()),
+	setFileProperties: (file) => dispatch(setFileProperties(file)),
+	setFaceBoundary: (boundary) => dispatch(setFaceBoundary(boundary)),
+	setApparelBoundary: (boundary) => dispatch(setApparelBoundary(boundary)),
+	numberOfFaces: (number) => dispatch(numberOfFaces(number)),
+	setBoundingBox: (bounding) => dispatch(setBoundingBox(bounding)),
+	setApparelsInfo: (info) => dispatch(setApparelsInfo(info)),
+	setWithSpinner: (spinner) => dispatch(setWithSpinner(spinner)),
+})
 
 
+
+export default connect(mapStateToProps, mapDispatchToProps)(Frame);

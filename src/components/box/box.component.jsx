@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import Navigation from '../navigation/navigation.component';
 
 import './box.style.css';
 

@@ -1,9 +1,67 @@
-.header{
-  font-family: monospace;
-  font-size: 45px;	
-  width: 100%;
-  display: block;
-  color: orange;
-  text-align: center; 
+.frame{
+	position: absolute;
+	background-color:black;
+	width:65%;
+	height: 500px;
+	border: 1px solid darkgray;
+	display:flex;
+	justify-content:space-between;
 }
 
+.image-frame {
+	width:70%;
+	display:flex;
+	justify-content:center;
+}
+
+.info-frame {
+	width:30%;
+	background-color: darkgray;
+	padding: 3px;
+	display: flex;
+}
+
+.apparels-info{
+	display: flex;
+	justify-content: space-between;
+	height:80%;
+	width:100%;
+}
+
+.apparels-info p {
+	margin-left: 2px;
+	margin-top: 10px;
+	margin-right: 45px;
+	margin-bottom: -5px;
+}
+
+.apparels-value{
+	font-variant: lighter;
+	font-size: 13px; 
+	color: white;
+	font-weight: 100;
+}
+
+.apparels-name{
+	font-variant: lighter;
+	font-size: 13px;
+	color: black; 
+	font-weight: 100;
+}
+
+.navigation-component {
+	align-self: flex-end;
+}
+
+.close-frame {
+	top:0;
+	left:0;
+	border: none;
+	height: fit-content;
+}
+
+.close-frame button:hover{
+	color: white;
+	background-color: crimson;
+	transition: 0.5s;
+}

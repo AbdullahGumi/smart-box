@@ -7,9 +7,8 @@ import { connect } from 'react-redux';
 import { setFileProperties } from './redux/image/image.actions';
 import { toggleBox } from './redux/box/box.actions';
 import Header from './components/header/header.component.jsx';
-import Navigation from './components/navigation/navigation.component.jsx';
 // import Modal from './components/modal/modal.component';
-import Box from './components/box/box.component';
+import Frame from './components/frame/frame.component';
 import './App.css';
  
 const particlesOptions = {
@@ -42,13 +41,9 @@ const App = ({ fileProperties, toggleBox, setFileProperties, isBoxVisible }) => 
 	return (
 		<div className="main">	
 			<Header/>
-			{isBoxVisible &&
-				<Navigation />
-			}
-			{ isBoxVisible &&
-				<Box />
-			}
-			
+			{ isBoxVisible ?
+				<Frame />
+			:
 			<Dropzone  onDrop={handleDrop} accept="image/*">
 		        {({ getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject}) => {
 		          // additional CSS depends on dragging status
@@ -63,7 +58,7 @@ const App = ({ fileProperties, toggleBox, setFileProperties, isBoxVisible }) => 
 		          );
 		       }}
      	    </Dropzone>
-     	    <button onClick={toggleBox}>box</button>
+			}
 			<Particles className="particles" params={particlesOptions}/>
 		</div>
 	);	
