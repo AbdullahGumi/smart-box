@@ -14,6 +14,7 @@ import './frame.styles.css';
 const Frame = ({ faceCount, apparelsInfo, toggleBox, setFaceBoundary, setApparelBoundary, numberOfFaces, setFileProperties, setBoundingBox, setApparelsInfo, setWithSpinner, withSpinner })=> {
 	
 	const closeFrame = () => {
+		setWithSpinner(false);
 		setFileProperties();
 		toggleBox();
 		setFaceBoundary({});
@@ -31,32 +32,24 @@ const Frame = ({ faceCount, apparelsInfo, toggleBox, setFaceBoundary, setApparel
 					<ImageFrame />
 				</div>	
 				<div className ="info-frame">
-						{!faceCount > 0 & !apparelsInfo.length > 0 ?
+						{!faceCount > 0 & !apparelsInfo.length > 0 & withSpinner === false ?
 							<h4>Select one of the models below to start.</h4>: null
 						}
 						{faceCount > 1 &&
 							<span>I have detected  {faceCount} faces</span>
 						}
 						{faceCount === 1  &&
-							<span>I have detected  {faceCount} face, try a group picture</span>
+							<span>I have detected  {faceCount} face</span>
 						}						
 						{withSpinner === true ? (
-							<div
-							      style={{
-							        width: "100%",
-							        height: "100",
-							        display: "flex",
-							        justifyContent: "center",
-							        alignItems: "center"
-							      }}
-							    >
-							      <Loader type="ThreeDots" color="#2BAD60" height="100" width="100" />
-							    </div>
+							<div className= 'spinner'>
+							      <Loader type="ThreeDots" color="#778899" secondaryColor = '#778899'  />
+						   </div>
 							    ) : (
 							    apparelsInfo.length > 0 &&
 									<div className = 'apparels-info'>
 										<h4>Name<span className = 'apparels-name'>{apparelsInfo.map((concepts) => <p key = {concepts[0].value}>{concepts[0].name}:</p>)}</span></h4>
-										<h4>Probabilty<span className = 'apparels-value'>{apparelsInfo.map((concepts) => <p key = {concepts[0].value}>{concepts[0].value * 100}%</p>)}</span></h4>
+										<h4>Probabilty<span className = 'apparels-value'>{apparelsInfo.map((concepts) => <p key = {concepts[0].value}>{Math.floor(concepts[0].value * 100)} %</p>)}</span></h4>
 									</div>
 							    
 							    )

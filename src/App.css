@@ -1,8 +1,8 @@
 .main {
 	display: flex;
 	flex-direction:column;
-	align-items:center
-
+	align-items:center;
+	padding-bottom: 50px;
 }
 
 
@@ -16,18 +16,31 @@
 }
 
 .dropzone {
-	height: 500px;
-	margin: auto;
+	height: fit-content;
 	display: flex;
-	padding: 150px;
+	padding: 100px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 	width: 35vw;
 	flex-direction: column;
 	border: 5px dashed #000000;
-	background-color: lightgray;
+    background: linear-gradient(89deg, #D7DDE8 -50%, #8CA6DB 100% );
 	color: black;
-	box-sizing: border-box;
 }
 
+ *::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #f64f59 30%, #7303c0 30%, #FF8C00 100%);
+}
+/*
+*::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}*/

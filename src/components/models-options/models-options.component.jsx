@@ -25,8 +25,8 @@ const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, nu
 			const outputs = apparelPercentage.map(apparels => apparels.region_info.bounding_box);
 			setBoundingBox(outputs)
 			const image = document.getElementById("inputImage");
-			const width = image.clientWidth;
-			const height = image.clientHeight;
+			const width = image.naturalWidth;
+			const height = image.naturalHeight;
 			const apparelsLoaction = outputs.map(apparel => { 
 					return {
 						leftCol: apparel.left_col * width,
@@ -95,8 +95,8 @@ const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, nu
 	}
 	return (
 		<div className="models-button">
-		  <button onClick={detectFace}><span className="icon-text">Detect Face</span></button>
-  		  <button onClick={detectApparels}><span className="icon-text">Detect Apparels</span></button>
+		  <button onClick={detectFace}>Detect Face</button>
+  		  <button onClick={detectApparels}>Detect Apparels</button>
 		</div>
 	);
 };
