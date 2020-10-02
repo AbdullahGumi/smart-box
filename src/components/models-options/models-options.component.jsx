@@ -18,11 +18,10 @@ const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, nu
 		const calculateApparel = (data) => {
 			const conceptsArray = data.outputs[0].data.regions.map(concepts => concepts.data.concepts);
 			setApparelsInfo(conceptsArray)
-			const apparelPercentage = data.outputs[0].data.regions.filter(percentage => percentage.value >= 0.5)
-			// console.log(conceptsArray.map((concepts) => concepts[0].name ));
-			// console.log(conceptsArray.map((concepts) => concepts[0].value ));
-			// const outputs = data.outputs[0].data.regions.map(apparels => apparels.region_info.bounding_box);
-			const outputs = apparelPercentage.map(apparels => apparels.region_info.bounding_box);
+			// const apparelPercentage = data.outputs[0].data.regions.filter(percentage => percentage.value >= 0.5)
+			// const outputs = apparelPercentage.map(apparels => apparels.region_info.bounding_box);
+			const outputs = data.outputs[0].data.regions.map(apparels => apparels.region_info.bounding_box);
+			console.log(outputs);
 			setBoundingBox(outputs)
 			const image = document.getElementById("inputImage");
 			console.log('image dimensions' ,image.naturalWidth, image.naturalHeight);

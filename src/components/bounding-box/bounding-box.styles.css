@@ -1,5 +1,5 @@
 .bounding-box {
-	border: 4px solid gold;
+	border: 2px solid lightblue;
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
