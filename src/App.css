@@ -34,7 +34,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: white;
+  background: lightgray;
 }
 
 *::-webkit-scrollbar-thumb {

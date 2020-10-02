@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import './image-frame.styles.css';
 
 const ImageFrame = ({ fileProperties, faceBoundary, apparelBoundary })=> (
-	<div className =''>
+	<div className ='image-div'>
 			<img id="inputImage" 
 					width = '500px'
 					height = '500px'
@@ -15,10 +15,10 @@ const ImageFrame = ({ fileProperties, faceBoundary, apparelBoundary })=> (
 					src={`data:image/png;base64, ${fileProperties}`} 
 					alt ="sample"/>
 					{faceBoundary.length > 0 && 
-						<BoundingBox width = '500' height ='500'/>
+						<BoundingBox />
 						}
 				{apparelBoundary.length > 0 && 
-					<BoundingBox width = '500' height = '500' />
+					<BoundingBox />
 				}
 				
 	</div>

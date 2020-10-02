@@ -7,13 +7,24 @@
   bottom: 0;  
   position: absolute;
   z-index: 1;
-  border: none;	
 }
 
 .models-button button:hover {
-  color: white;
-  background-color: black;
-  transition: 0.4s;
+  color: #3a3535;
+  border: none;
+  cursor: pointer;
+  transition: 0.6s;
+  background: transparent;
+}
+
+.models-button button{
+  background: linear-gradient(89deg, #3a3535 -50%, #8CA6DB 100% );
+  color: black;
+  background-color: transparent;
+  }
+
+button {
+  border: none;
 }
 
 @media screen and (max-width: 800px) {

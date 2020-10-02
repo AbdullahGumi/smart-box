@@ -5,7 +5,7 @@ import Clarifai from 'clarifai';
 import { connect } from 'react-redux';
 
 import { setFaceBoundary, setApparelBoundary, numberOfFaces, setBoundingBox, setApparelsInfo, setWithSpinner } from '../../redux/box/box.actions';
-
+import { setImageDimensions } from '../../redux/image/image.actions.js';
 
 import './models-options.styles.css';
 
@@ -13,7 +13,7 @@ const app = new Clarifai.App({
 	apiKey: '3433c425ee5242de9459ae5f670f07f7'
 	});
 
-const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, numberOfFaces, setBoundingBox, setApparelsInfo, setWithSpinner })=> {
+const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, numberOfFaces, setBoundingBox, setApparelsInfo, setWithSpinner, setImageDimensions })=> {
 
 		const calculateApparel = (data) => {
 			const conceptsArray = data.outputs[0].data.regions.map(concepts => concepts.data.concepts);
@@ -25,6 +25,7 @@ const ModelsOptions = ({ setFaceBoundary, setApparelBoundary, fileProperties, nu
 			const outputs = apparelPercentage.map(apparels => apparels.region_info.bounding_box);
 			setBoundingBox(outputs)
 			const image = document.getElementById("inputImage");
+			console.log('image dimensions' ,image.naturalWidth, image.naturalHeight);
 			const width = image.naturalWidth;
 			const height = image.naturalHeight;
 			const apparelsLoaction = outputs.map(apparel => { 
@@ -112,6 +113,7 @@ const mapDispatchToProps = dispatch => ({
 	setApparelsInfo: (number) => dispatch(setApparelsInfo(number)),
 	setBoundingBox: (bounding) => dispatch(setBoundingBox(bounding)),
 	setWithSpinner: (spinner) => dispatch(setWithSpinner(spinner)),
+	setImageDimensions: (dimensions) => dispatch(setImageDimensions(dimensions)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModelsOptions);
