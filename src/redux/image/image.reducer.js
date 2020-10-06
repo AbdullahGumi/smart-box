@@ -2,7 +2,6 @@ import { ImageActionTypes } from './image.types';
 
 const INITIAL_STATE = {
 	fileProperties: '',
-	imageDimensions: { width: 0, height: 0 }
 }
 const imageReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
@@ -11,12 +10,7 @@ const imageReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				fileProperties: action.payload
 			}
-		case ImageActionTypes.SET_IMAGE_DIMENSIONS:
-			return {
-				...state,
-				imageDimensions: action.payload
-			}		
-			
+				
 		default:
 			return state;
 			

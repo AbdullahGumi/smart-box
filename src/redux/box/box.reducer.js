@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 	isBoxVisible: false,
 	faceBoundary: {},
 	apparelBoundary: {},
-	faceCount: 0,
+	faceInfo: {},
 	apparelsInfo: {},
 	apparelsLabel: [],
 	boundingBox: {},
@@ -29,27 +29,27 @@ const boxReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				apparelBoundary: action.payload
 			}		
-		case BoxActionTypes.NUMBER_OF_FACES:
+		case BoxActionTypes.SET_FACE_INFO:
 			return {
 				...state,
-				faceCount: action.payload
+				faceInfo: action.payload
 			}
-		case BoxActionTypes.APPARELS_INFO:
+		case BoxActionTypes.SET_APPARELS_INFO:
 			return {
 				...state,
 				apparelsInfo: action.payload
 			}			
-		case BoxActionTypes.APPARELS_LABEL:
+		case BoxActionTypes.SET_APPARELS_LABEL:
 			return {
 				...state,
 				apparelsLabel: action.payload
 			}
-		case BoxActionTypes.BOUNDING_BOX:
+		case BoxActionTypes.SET_BOUNDING_BOX:
 			return {
 				...state,
 				boundingBox: action.payload
 			}
-		case BoxActionTypes.WITH_SPINNER:
+		case BoxActionTypes.SET_WITH_SPINNER:
 			return {
 				...state,
 				withSpinner: action.payload

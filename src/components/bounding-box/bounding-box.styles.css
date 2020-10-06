@@ -1,9 +1,27 @@
 .bounding-box {
-	border: 2px solid lightblue;
+	border: 2px solid  rgba(0, 78, 235, 1.0);
 	position: absolute;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	cursor: pointer;
 	z-index: 5;
+}
+
+  .box-label {
+    background: rgba(0, 78, 235, 1.0);
+    color: white;
+    height: 0.9rem;
+    font-size: 0.7rem;
+    left: 0;
+    position: absolute;
+    font-family: sofia-pro, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+  }
+
+.transparent {
+	background-color: white;
+	opacity: 0.3;
+	width: 100%
 }

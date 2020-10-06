@@ -14,29 +14,29 @@ export const setApparelBoundary = (box) => ({
 	payload: box
 })
 
-export const numberOfFaces = (number) => ({
-	type: BoxActionTypes.NUMBER_OF_FACES,
-	payload: number
+export const setFaceInfo = (info) => ({
+	type: BoxActionTypes.SET_FACE_INFO,
+	payload: info
 })
 
 export const setApparelsLabel = (labels) => ({
-	type: BoxActionTypes.APPARELS_LABEL,
+	type: BoxActionTypes.SET_APPARELS_LABEL,
 	payload: labels
 })
 
 export const setBoundingBox = (bounding) => ({
-	type: BoxActionTypes.BOUNDING_BOX,
+	type: BoxActionTypes.SET_BOUNDING_BOX,
 	payload: bounding
 })
 
 export const setApparelsInfo = (info) => ({
-	type: BoxActionTypes.APPARELS_INFO,
+	type: BoxActionTypes.SET_APPARELS_INFO,
 	payload: info
 })
 
 
 export const setWithSpinner = (spinner) => ({
-	type: BoxActionTypes.WITH_SPINNER,
+	type: BoxActionTypes.SET_WITH_SPINNER,
 	payload: spinner
 })
 

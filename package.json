@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "clarifai": "^2.9.1",
+    "deepai": "^1.0.15",
     "gh-pages": "^3.1.0",
     "image-to-base64": "^2.1.1",
     "react": "^16.13.1",
