@@ -12,7 +12,6 @@ const INITIAL_STATE = {
 }
 
 const boxReducer = (state = INITIAL_STATE, action) => {
-	console.log('state at box reducer: ',state);
 	switch (action.type) {
 		case BoxActionTypes.TOGGLE_BOX:
 			return {
