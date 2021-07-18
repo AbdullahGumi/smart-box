@@ -1,4 +1,4 @@
-# Smart-box
+# Smart-Box
 This smart box app uses AI to detect faces and apparels in an image
 
 ## Installation and setup instructions
