@@ -5,7 +5,7 @@ This smart box app uses AI to detect faces and apparels in an image
 You need ```Node ``` and ```npm ``` installed on your machine!
 
 #### install required dependencies
-To install required dependecies run:
+To install required dependencies run:
 
 ```npm install ```
 
