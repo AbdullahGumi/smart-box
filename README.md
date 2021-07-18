@@ -2,22 +2,22 @@
 This smart box app uses AI to detect faces and apparels in an image
 
 ## Installation and setup instructions
-You need ```Node ``` and ```npm ``` installed on your machine!
+You need ```Node``` and ```npm``` installed on your machine!
 
 #### install required dependencies
 To install required dependencies run:
 
-```npm install ```
+```npm install```
 
 #### Start Application In Development Mode 
 
-```npm start ```
+```npm start```
 
 #### Build Application 
 
-```npm run build  ```
+```npm run build```
 
 
-This project runs on ```localhost:3000 ```
+This project runs on ```localhost:3000```
 
 
