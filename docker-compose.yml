@@ -1,0 +1,6 @@
+version: "3"
+services: 
+    smart-box:
+        build: .
+        ports: ["3000:3000"]
+        container_name: smart-box-AI
