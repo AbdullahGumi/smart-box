@@ -1,13 +1,17 @@
 FROM node:14
 
-EXPOSE 3000
-
 WORKDIR /usr/src/app
 
-COPY . .
+COPY package.json ./
+
+COPY package-lock.json ./
 
 RUN node -v && npm -v
 
 RUN npm install 
 
-CMD ["npm", "start"]
+RUN npm install -g serve 
+
+COPY . .
+
+RUN npm run build 
