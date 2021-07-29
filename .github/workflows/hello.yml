@@ -3,7 +3,7 @@ name: Deploy smart-box to heroku
 on:
   push:
     branches:
-      - main
+      - master
 
 
 jobs:
