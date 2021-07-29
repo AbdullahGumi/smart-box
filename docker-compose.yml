@@ -5,4 +5,4 @@ services:
         ports: ["3000:3000"]
         stdin_open: true
         container_name: smart-box-AI
-        command: ["npm", "start"]
+      
