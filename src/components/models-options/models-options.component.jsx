@@ -74,34 +74,30 @@ const ModelsOptions = ({
 
   const detectFace = () => {
     setWithSpinner(true);
-    app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, { base64: fileProperties })
-      .then(
-        (response) => {
-          setFaceBoundary(calculateFace(response));
-          setWithSpinner(false);
-        },
-        (err) => {
-          console.log("There was an error", err);
-        }
-      );
+    app.models.predict("face-detection", { base64: fileProperties }).then(
+      (response) => {
+        setFaceBoundary(calculateFace(response));
+        setWithSpinner(false);
+      },
+      (err) => {
+        console.log("There was an error", err);
+      }
+    );
     setApparelsInfo({});
     setApparelBoundary({});
   };
 
   const detectApparels = () => {
     setWithSpinner(true);
-    app.models
-      .predict("72c523807f93e18b431676fb9a58e6ad", { base64: fileProperties })
-      .then(
-        (response) => {
-          setApparelBoundary(calculateApparel(response));
-          setWithSpinner(false);
-        },
-        (err) => {
-          console.log("There was an error", err);
-        }
-      );
+    app.models.predict("apparel-detection", { base64: fileProperties }).then(
+      (response) => {
+        setApparelBoundary(calculateApparel(response));
+        setWithSpinner(false);
+      },
+      (err) => {
+        console.log("There was an error", err);
+      }
+    );
     setFaceBoundary({});
     setFaceInfo({});
   };
